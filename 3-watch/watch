@@ -1,0 +1,12 @@
+[Unit]
+Description=Watch Disk Usage
+[Service]
+Type=simple
+StandardInput=tty
+TTYPath=/dev/tty2
+TTYReset=yes
+TTYVHangup=yes
+ExecStart=/bin/bash -c "/home/zms/wdu.sh"
+Restart=on-failure
+[Install]
+WantedBy=multi-user.target
