@@ -1,12 +1,16 @@
 [Unit]
 Description=Watch Disk Usage
 [Service]
+# systemd запустит эту службу незамедлительно
 Type=simple
+# Интерактивное взаимодействие с пользователем через tty
 StandardInput=tty
 TTYPath=/dev/tty2
 TTYReset=yes
 TTYVHangup=yes
+# Команда запуска - вызов скрипта
 ExecStart=/bin/bash -c "/home/zms/wdu.sh"
+# Перезапуск в случае падения
 Restart=on-failure
 [Install]
 WantedBy=multi-user.target
