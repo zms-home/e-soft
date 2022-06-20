@@ -1,3 +1,4 @@
+<blockquote> 
 version: '3'</br>
 
 services:</br>
@@ -17,3 +18,31 @@ services:</br>
      - ./conf.d:/etc/nginx/conf.d</br>
      - ./conf/nginx.conf:/etc/nginx/nginx.conf</br>
      - ./modules:/modules</br>
+     
+     </blockquote> 
+
+
+Настройки блока server ложим в ./conf.d в файл cfg.conf в котором настраиваем определение UserAgent и дальнейшее действие:
+
+     <blockquote
+server {
+        listen 80;
+        listen [::]:80;
+
+        if ($http_user_agent ~* "(iphone|android|blackberry)") {
+        rewrite ^(.*)$ /liteversion/index.html break;
+        }
+        root /var/www/;
+        index index.html index.htm index.nginx-debian.html;
+
+        server_name localhost;
+
+        location / {
+                try_files $uri $uri/ =404;
+
+}
+}
+     </blockquote
+     
+В нашем случае при  UserAgent "(iphone|android|blackberry)" будем открывать страницу, которая лежит в директории www/liteversion/
+
