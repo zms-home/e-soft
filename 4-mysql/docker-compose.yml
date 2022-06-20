@@ -1,16 +1,21 @@
 version: '3'
 services:
   mysql_master:
+    #Указываем образ и тэг 
     image: mysql:5.7
+    #Указываем юзера, базу, пассворд, хотя луше вынести в отдельный файл
     environment:
       MYSQL_DATABASE: 'db'
       MYSQL_USER: 'master'
       MYSQL_PASSWORD: 'master'
       MYSQL_ROOT_PASSWORD: 'master'
+    #Даем имя контейнеру  
     container_name: "mysql_master"
     restart: "on-failure"
+    #Пробрасываем порты для доступа к контейнеру
     ports:
       - 4406:3306
+    #Монтируем волумы  
     volumes:
       - ./master/conf/mysql.conf.cnf:/etc/mysql/conf.d/mysql.conf.cnf
       - ./master/data:/var/lib/mysql
@@ -18,18 +23,23 @@ services:
       - overlay
 
   mysql_slave:
+    #Указываем образ и тэг
     image: mysql:5.7
+    #Указываем юзера, базу, пассворд, хотя луше вынести в отдельный файл
     environment:
       MYSQL_DATABASE: 'db'
       MYSQL_USER: 'slave'
       MYSQL_PASSWORD: 'slave'
       MYSQL_ROOT_PASSWORD: 'slave'
+    #Даем имя контейнеру  
     container_name: "mysql_slave"
     restart: "on-failure"
     ports:
       - 5506:3306
+    #Указываем зависимость  
     depends_on:
       - mysql_master
+    #Монтируем волумы  
     volumes:
       - ./slave/conf/mysql.conf.cnf:/etc/mysql/conf.d/mysql.conf.cnf
       - ./slave/data:/var/lib/mysql
@@ -38,5 +48,3 @@ services:
 
 networks:
   overlay:
-
-
