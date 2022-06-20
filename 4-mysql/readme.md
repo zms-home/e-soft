@@ -1,5 +1,6 @@
 Запускаем контейнеры
-docker-compose up -d
+
+<blockquote>docker-compose up -d</blockquote>
 
 Далее настраиваем конфигурацию ведущий-ведомый
 
@@ -7,11 +8,11 @@ docker-compose up -d
 
 <blockquote>docker-compose exec -it mysql_slave bash</blockquote>
 
-mysql -u root -p
+<blockquote>mysql -u root -p</blockquote>
 
-mysql> CHANGE MASTER TO MASTER_HOST='mysql_master', MASTER_USER='root', MASTER_PASSWORD='password'
-mysql> start slave;
+<blockquote>mysql> CHANGE MASTER TO MASTER_HOST='mysql_master', MASTER_USER='root', MASTER_PASSWORD='password'</blockquote>
+<blockquote>mysql> start slave;</blockquote>
 
 Проверьте статус подчиненного узла:
 
-mysql> show slave status\G;
+<blockquote>mysql> show slave status\G;</blockquote>
