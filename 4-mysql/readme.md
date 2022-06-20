@@ -5,7 +5,7 @@ docker-compose up -d
 
 Заходим на подчиненный узел:
 
-docker-compose exec -it mysql_slave bash
+<blockquote>docker-compose exec -it mysql_slave bash</blockquote>
 
 mysql -u root -p
 
