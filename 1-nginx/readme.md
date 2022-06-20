@@ -26,7 +26,7 @@ services:</br>
 <p>Настройки блока server ложим в ./conf.d в файл cfg.conf в котором настраиваем определение UserAgent и дальнейшее действие:
 
 <blockquote>
-
+</br>
 server {
         listen 80;
         listen [::]:80;
