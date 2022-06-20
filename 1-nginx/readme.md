@@ -43,7 +43,7 @@ server {
 
 }
 }
-     </blockquote
+     </blockquote>
      
 В нашем случае при  UserAgent "(iphone|android|blackberry)" будем открывать страницу, которая лежит в директории www/liteversion/
 
