@@ -25,7 +25,8 @@ services:</br>
 
 Настройки блока server ложим в ./conf.d в файл cfg.conf в котором настраиваем определение UserAgent и дальнейшее действие:
 
-     <blockquote>
+<blockquote>
+
 server {
         listen 80;
         listen [::]:80;
@@ -43,7 +44,8 @@ server {
 
 }
 }
-     </blockquote>
+  
+</blockquote>
      
 В нашем случае при  UserAgent "(iphone|android|blackberry)" будем открывать страницу, которая лежит в директории www/liteversion/
 
