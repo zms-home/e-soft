@@ -19,12 +19,13 @@ services:</br>
      - ./conf/nginx.conf:/etc/nginx/nginx.conf</br>
      - ./modules:/modules</br>
      
-     </blockquote> 
+</blockquote> 
+
 
 
 Настройки блока server ложим в ./conf.d в файл cfg.conf в котором настраиваем определение UserAgent и дальнейшее действие:
 
-     <blockquote
+     <blockquote>
 server {
         listen 80;
         listen [::]:80;
